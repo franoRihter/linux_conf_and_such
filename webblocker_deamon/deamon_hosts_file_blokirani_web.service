@@ -1,0 +1,14 @@
+[Unit]
+Description=Demon koji blokira web stranice do 20:00 navecer. Filovi se nalate u /usr/local/bin/
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/deamon_hosts_file_blokirani_web
+Restart=always
+RestartSec=5
+StandardOutput=append:/var/log/deamon_hosts_file_blokirani_web.log
+StandardError=append:/var/log/deamon_hosts_file_blokirani_web.err
+User=root
+
+[Install]
+WantedBy=multi-user.target
